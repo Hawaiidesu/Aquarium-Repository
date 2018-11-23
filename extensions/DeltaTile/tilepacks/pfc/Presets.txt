@@ -1,0 +1,11 @@
+Gradient color preset (gradient)
+["ffffff", "f2f2f2", "e6e6e6", "d9d9d9", "cccccc", "bfbfbf", "b3b3b3", "a6a6a6", "999999", "8c8c8c", "808080", "737373", "666666", "595959", "4d4d4d", "404040", "333333", "262626", "1a1a1a", "0d0d0d", "000000"]
+
+Custom color preset 1 (grass,stone,)
+["00ff00", "00be00", "008c00", "5e3700", "874f00", "ffb752", "a15e00", "858585", "666666", "c47200", "ffac38", "e88300", "3d301d", "665130", "987849", "66481a", "694b1d", "997543", "916e40", "87663b"]
+
+Custom color preset 2 (leaves, bricks)
+["102b09", "47a52d", "439e2a", "398524", "265818", "214d15", "235216", "9a5642", "6c3c2f", "5f3528", "ab9891", "9d8a81", "6f6a5b", "777264", "827d71", "878276"]
+
+Custom color preset 3 (sand, sand brick)
+["ffdeb2", "ffcc8a"]
