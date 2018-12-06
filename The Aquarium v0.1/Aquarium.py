@@ -46,7 +46,8 @@ def detectAll(listt,x,y):
             v = True
         
         i += 1
-        
+    
+    print(v)
     return v
            
 class player:
@@ -59,15 +60,33 @@ class player:
     
     
         
-    collider_top = (x + (sizeX / 2), y)
-    collider_bottom = (x + (sizeX / 2), y + sizeY)
-    collider_left = (x, y + (sizeY / 2))
-    collider_right = (x + sizeX, y + (sizeY / 2))
+    collider_top = (0,0)
+    collider_bottom = (0,0)
+    collider_left = (0,0)
+    collider_right = (0,0)
+    
+    collider_topleft = (0,0)
+    collider_topright = (0,0)
+    collider_bottomleft = (0,0)
+    collider_bottomright = (0,0)
+    
+    def colliderUpdate():
+        player.collider_top = (player.x + (player.sizeX / 2), player.y)
+        player.collider_bottom = (player.x + (player.sizeX / 2), player.y + player.sizeY)
+        player.collider_left = (player.x, player.y + (player.sizeY / 2))
+        player.collider_right = (player.x + player.sizeX, player.y + (player.sizeY / 2))
         
+        player.collider_topleft = (player.x, player.y)
+        player.collider_topright = (player.x + player.sizeX, player.Y)
+        player.collider_bottomleft = (player.x, player.y + player.sizeY)
+        player.collider_bottomright = (player.x + player.sizeX, player.y + player.sizeY)
+    
     def update():
         pygame.event.get()
         keys = pygame.key.get_pressed()
         speed = 0
+        
+        player.colliderUpdate()
         
         if keys[pygame.K_LSHIFT]:
             step = player.dashSpeed
@@ -76,20 +95,21 @@ class player:
         
         
         if keys[pygame.K_UP] or keys[pygame.K_w]:
-            if not detectAll(scene.colliderList,player.collider_top[0],player.collider_top[1]):
+            if not (detectAll(scene.colliderList,player.collider_topleft[0],player.collider_topleft[1]) or detectAll(scene.colliderList,player.collider_topleft[0],player.collider_topleft[1])):
                 player.y -= step
                 
         if keys[pygame.K_DOWN] or keys[pygame.K_s]:
-            if not detectAll(scene.colliderList,player.collider_bottom[0],player.collider_bottom[1]):
+            if not (detectAll(scene.colliderList,player.collider_bottomleft[0],player.collider_bottomleft[1]) or detectAll(scene.colliderList,player.collider_bottomleft[0],player.collider_bottomleft[1]))::
                 player.y += step
                 
         if keys[pygame.K_LEFT] or keys[pygame.K_a]:
-            if not detectAll(scene.colliderList,player.collider_left[0],player.collider_left[1]):
+            if not (detectAll(scene.colliderList,player.collider_topleft[0],player.collider_topleft[1]) or detectAll(scene.colliderList,player.collider_topleft[0],player.collider_topleft[1])):
                 player.x -= step
                 
         if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
-            if not detectAll(scene.colliderList,player.collider_left[0],player.collider_left[1]):
+            if not detectAll(scene.colliderList,player.collider_right[0],player.collider_right[1]):
                 player.x += step
+                
         
             
     def draw():
@@ -117,4 +137,5 @@ def draw():
 
 while True:
     update()
+
     
