@@ -24,7 +24,7 @@ class scene:
 
 class pos:
     x = 0
-    y = 0
+    y = 0 
 
 def detect(x,y,x2,y2,x3,y3):
     if (x > x2 and x < x3) and (y > y2 and y < y3):
@@ -84,7 +84,7 @@ class player:
     def update():
         pygame.event.get()
         keys = pygame.key.get_pressed()
-        speed = 0
+        step = 0
         
         player.colliderUpdate()
         
